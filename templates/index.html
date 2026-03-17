@@ -4,40 +4,90 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FNDEC — Fake News Detector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/static/css/style.css" />
 </head>
 <body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
   <div class="container">
     <header>
-      <h1>FNDEC</h1>
-      <p class="subtitle">Fake News Detection Classifier</p>
+      <div class="badge">AI-Powered · 99.18% Accurate</div>
+      <h1>FN<span class="accent">DEC</span></h1>
+      <p class="subtitle">Drop any news article and find out if it's real or fake in seconds.</p>
+      <div class="stats-bar">
+        <div class="stat">
+          <span class="stat-value">44,898</span>
+          <span class="stat-label">Articles Trained</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">99.18%</span>
+          <span class="stat-label">Accuracy</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">TF-IDF</span>
+          <span class="stat-label">NLP Model</span>
+        </div>
+      </div>
     </header>
 
     <main>
       <div class="card">
-        <label for="news-input">Paste a news article or headline</label>
+        <div class="card-top">
+          <label for="news-input">Paste your article or headline</label>
+          <span class="word-count" id="word-count">0 words</span>
+        </div>
         <textarea
           id="news-input"
-          placeholder="Enter news text here..."
-          rows="8"
+          placeholder="e.g. WASHINGTON (Reuters) — The Federal Reserve raised interest rates..."
+          rows="7"
+          oninput="updateWordCount()"
         ></textarea>
-        <button id="analyze-btn" onclick="analyze()">Analyze</button>
+        <div class="quick-samples">
+          <span class="samples-label">Try a sample:</span>
+          <button class="sample-btn" onclick="loadSample('fake')">🚨 Fake</button>
+          <button class="sample-btn" onclick="loadSample('real')">✅ Real</button>
+        </div>
+        <div class="btn-row">
+          <button class="btn-secondary" onclick="clearInput()">Clear</button>
+          <button id="analyze-btn" class="btn-primary" onclick="analyze()">
+            <span id="btn-text">Analyze Article</span>
+            <span id="btn-spinner" class="spinner hidden"></span>
+          </button>
+        </div>
+        <p class="hint">Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to analyze</p>
       </div>
 
       <div class="result-card" id="result-card">
-        <div class="result-icon" id="result-icon"></div>
-        <div class="result-label" id="result-label"></div>
-        <div class="confidence-bar-wrap">
-          <div class="confidence-bar" id="confidence-bar"></div>
+        <div class="result-glow" id="result-glow"></div>
+        <div class="result-inner">
+          <div class="result-icon" id="result-icon"></div>
+          <div class="result-label" id="result-label"></div>
+          <p class="result-description" id="result-description"></p>
+          <div class="confidence-wrap">
+            <div class="confidence-row">
+              <span>Model Confidence</span>
+              <span id="confidence-pct" class="conf-pct"></span>
+            </div>
+            <div class="confidence-track">
+              <div class="confidence-bar" id="confidence-bar"></div>
+            </div>
+          </div>
         </div>
-        <div class="confidence-text" id="confidence-text"></div>
       </div>
 
       <div class="error-card" id="error-card"></div>
     </main>
 
     <footer>
-      <p>Powered by Logistic Regression + TF-IDF · Trained on 44,898 news articles</p>
+      <p>Built with Logistic Regression · NLTK · scikit-learn &nbsp;·&nbsp;
+        <a href="https://github.com/Nathanchukss/FNDEC" target="_blank">GitHub ↗</a>
+      </p>
     </footer>
   </div>
 
