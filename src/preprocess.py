@@ -1,9 +1,17 @@
 import re
+import ssl
 import nltk
 import pandas as pd
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
+
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
 
 nltk.download('punkt', quiet=True)
 nltk.download('punkt_tab', quiet=True)
