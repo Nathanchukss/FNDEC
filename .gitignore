@@ -12,7 +12,6 @@ env/
 data/*.csv
 data/*.tsv
 data/*.json
-models/*.joblib
 models/confusion_matrix.png
 
 # Jupyter
