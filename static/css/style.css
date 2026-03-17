@@ -65,6 +65,24 @@ header {
   margin-bottom: 2rem;
 }
 
+.logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.logo-img {
+  width: 72px;
+  height: 72px;
+  filter: drop-shadow(0 0 16px #7c3aed80);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
 .badge {
   display: inline-block;
   background: linear-gradient(135deg, #7c3aed20, #7c3aed40);
