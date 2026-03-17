@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.env
+venv/
+env/
+
+# Data & Models
+data/*.csv
+data/*.tsv
+data/*.json
+models/*.joblib
+models/confusion_matrix.png
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
