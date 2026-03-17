@@ -1,6 +1,6 @@
 # FNDEC — Fake News Detection Classifier
 
-**Live Demo:** https://fndec.onrender.com
+**Live Demo:** https://fndec.onrender.com (hosted on Render)
 
 An NLP-based classification model that identifies fake news by preprocessing 10,000+ text samples through tokenization, stemming, and TF-IDF vectorization.
 
