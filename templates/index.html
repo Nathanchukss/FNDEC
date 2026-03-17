@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FNDEC — Fake News Detector</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>FNDEC</h1>
+      <p class="subtitle">Fake News Detection Classifier</p>
+    </header>
+
+    <main>
+      <div class="card">
+        <label for="news-input">Paste a news article or headline</label>
+        <textarea
+          id="news-input"
+          placeholder="Enter news text here..."
+          rows="8"
+        ></textarea>
+        <button id="analyze-btn" onclick="analyze()">Analyze</button>
+      </div>
+
+      <div class="result-card" id="result-card">
+        <div class="result-icon" id="result-icon"></div>
+        <div class="result-label" id="result-label"></div>
+        <div class="confidence-bar-wrap">
+          <div class="confidence-bar" id="confidence-bar"></div>
+        </div>
+        <div class="confidence-text" id="confidence-text"></div>
+      </div>
+
+      <div class="error-card" id="error-card"></div>
+    </main>
+
+    <footer>
+      <p>Powered by Logistic Regression + TF-IDF · Trained on 44,898 news articles</p>
+    </footer>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
