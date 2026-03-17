@@ -1,7 +1,13 @@
 import re
+import os
 import ssl
 import nltk
 import pandas as pd
+
+# Use bundled NLTK data when available (for serverless deployments)
+_bundled = os.path.join(os.path.dirname(__file__), '..', 'nltk_data')
+if os.path.exists(_bundled):
+    nltk.data.path.insert(0, os.path.abspath(_bundled))
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
