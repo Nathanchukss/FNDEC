@@ -331,6 +331,26 @@ kbd {
   margin-top: 1rem; padding: 0.9rem 1.25rem; text-align: center;
 }
 
+/* ── Disclaimer ── */
+.disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: #111318;
+  border: 1px solid #2a2510;
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  margin-top: 1rem;
+}
+
+.disclaimer-icon { font-size: 0.9rem; margin-top: 0.1rem; flex-shrink: 0; }
+
+.disclaimer p {
+  font-size: 0.78rem;
+  color: #6b6040;
+  line-height: 1.5;
+}
+
 /* ── Footer ── */
 footer { color: #1e2235; font-size: 0.75rem; margin-top: 2rem; text-align: center; }
 footer a { color: #334155; text-decoration: none; transition: color 0.2s; }
